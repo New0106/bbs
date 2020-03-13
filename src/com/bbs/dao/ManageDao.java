@@ -70,6 +70,27 @@ public class ManageDao {
 		}
 		return plates;
 	}
+	/**
+	 * 根据plateId删除对应的版块
+	 * @param plateId
+	 * @return 成功返回1，失败返回0
+	 */
+	public int deleteplateId(Integer plateId) {
+		Connection conn = null;
+		PreparedStatement ps = null;
+		try {
+			conn = BaseDao.getCon();
+			String sql = "delete  from bbs_plate where plateId=?";
+			ps = conn.prepareStatement(sql);
+			return BaseDao.update(ps, new Object[] {plateId});
+		} catch (Exception e) {e.printStackTrace();
+		} finally {
+			try {
+				BaseDao.close(conn, ps, null);
+			} catch (Exception e2) {e2.printStackTrace();}
+		}
+		return 0;
+	}
 }
 
 

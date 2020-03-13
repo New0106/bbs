@@ -13,7 +13,7 @@ public class BaseDao {
 	}
 	private static String URL = "jdbc:mysql://localhost:3306/bbs_system?useUnicode=true&characterEncoding=UTF-8";
 	private static String USER = "root";// 数据库账户
-	private static String PASSWORD = "root";// 数据库密码
+	private static String PASSWORD = "vae.0106";// 数据库密码
 	/**
 	 * 获取数据库连接
 	 * @return

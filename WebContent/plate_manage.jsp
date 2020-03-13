@@ -115,7 +115,7 @@ $(function(){
 					+'<h6>'+msg.plateTitle+'</h6>'
 					+'<div class="textC">'
 					+'<a href="?plateId='+msg.plateId+'" title="" class="button greenB"><span>修改版块</span></a>'
-	 				+'<a href="?plateId='+msg.plateId+'" title="" class="button redB"><span>删除版块</span></a>'
+	 				+'<a href="${pageContext.request.contextPath}/delete_plate?plateId='+msg.plateId+'" title="" class="button redB"><span>删除版块</span></a>'
 	        		+'</div>'
 					+'<div class="clear"></div>'
 					+'</div>'
@@ -135,9 +135,9 @@ $(function(){
 $(function(){
 	// 发送ajax请求，获取到所有版块信息
 	$.ajax({
-		type: "POST",
-		url: "${pageContext.request.contextPath}/list_plates",
-		success: function(msg){
+		type: "POST",// 请求方式为POST
+		url: "${pageContext.request.contextPath}/list_plates",// URL
+		success: function(msg){// msg提交的数据//success请求成功
 			var content = '';
 			for(var item in msg){
 				content += '<div class="widget">'
@@ -145,7 +145,7 @@ $(function(){
 					+'<h6>'+msg[item].plateTitle+'</h6>'
 					+'<div class="textC">'
 					+'<a href="?plateId='+msg[item].plateId+'" title="" class="button greenB"><span>修改版块</span></a>'
-	 				+'<a href="?plateId='+msg[item].plateId+'" title="" class="button redB"><span>删除版块</span></a>'
+	 				+'<a href="${pageContext.request.contextPath}/delete_plate?plateId='+msg[item].plateId+'" title="" class="button redB"><span>删除版块</span></a>'
 	        		+'</div>'
 					+'<div class="clear"></div>'
 					+'</div>'
@@ -159,6 +159,7 @@ $(function(){
 		}
 	});
 });
+
 </script>
 </body>
 </html>
